@@ -4,7 +4,7 @@
     font-size: 35px;
   }
 </style>
-<%= form_for(@record, html: { class: 'form-horizontal' }) do |f| %>
+<%= form_for([@recording_sheet, @record], html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
 
@@ -73,6 +73,6 @@
   
   <div class="form-actions">
     <%= f.submit class: 'btn btn-primary' %>
-    <%= link_to "Cancel", records_path, class: 'btn' %>
+    <%= link_to "Cancel", recording_sheet_records_path(@recording_sheet), class: 'btn' %>
   </div>
 <% end %>

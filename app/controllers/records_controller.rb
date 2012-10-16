@@ -25,6 +25,7 @@ class RecordsController < ApplicationController
   # GET /records/new.json
   def new
     @record = Record.new
+    @recording_sheet = RecordingSheet.find(params[:recording_sheet_id])
 
     respond_to do |format|
       format.html # new.html.erb
