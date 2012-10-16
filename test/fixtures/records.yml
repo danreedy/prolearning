@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  minute: 1
+  teacher: MyString
+  student: MyString
+  grouping: MyString
+  topic: MyString
+  notes: MyText
+  recording_sheet: 
+
+two:
+  minute: 1
+  teacher: MyString
+  student: MyString
+  grouping: MyString
+  topic: MyString
+  notes: MyText
+  recording_sheet: 

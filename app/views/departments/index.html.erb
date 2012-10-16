@@ -1,0 +1,38 @@
+<% @title = "Listing departments" %>
+
+<% content_for :description do %>
+  <p>Edit this template in <code>app/views/Departments/index.html.erb</code>.</p>
+<% end %>
+
+<% content_for :actions do %>
+  <%= link_to new_department_path, class: 'btn btn-primary btn-large pull-right' do %>
+    <%= icon_tag "plus" %> Add Department
+  <% end %>
+<% end %>
+
+<div class="sheet sheet-condensed">
+  <div class="sheet-inner">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @departments.each do |department| %>
+        <tr>
+          <td><%= department.name %></td>
+          <td class="actions">
+            <%= link_to icon_tag("eye-open"), department, rel: 'tooltip', title: 'Show' %>
+            <%= link_to icon_tag("pencil"), edit_department_path(department), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to icon_tag("trash"), department, rel: 'tooltip', title: 'Delete',
+                        data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.sheet-inner -->
+</div><!-- /.sheet -->
+

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  observer: 
+  teacher: 
+  recorded_on: 2012-10-16
+  school_year: 1
+  semester: MyString
+  department: 
+  type_of_school: MyString
+  course: MyString
+  number_of_students: 1
+  interval: 1
+
+two:
+  observer: 
+  teacher: 
+  recorded_on: 2012-10-16
+  school_year: 1
+  semester: MyString
+  department: 
+  type_of_school: MyString
+  course: MyString
+  number_of_students: 1
+  interval: 1

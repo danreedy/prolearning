@@ -1,0 +1,79 @@
+<% @title = "Showing recording_sheet" %>
+
+<div class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label">Observer</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.observer.email %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Teacher</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.teacher.email %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Recorded on</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.recorded_on %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">School year</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.school_year %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Semester</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.semester %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Department</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.department.name %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Type of school</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.type_of_school %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Course</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.course %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Number of students</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.number_of_students %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Interval</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @recording_sheet.interval %></span>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= link_to icon_tag("pencil") + ' Edit', edit_recording_sheet_path(@recording_sheet), class: 'btn btn-primary' %>
+    <%= link_to 'Back', recording_sheets_path, class: 'btn' %>
+  </div>
+</div>
+

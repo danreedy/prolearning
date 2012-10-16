@@ -1,0 +1,56 @@
+<% @title = "Listing recording_sheets" %>
+
+<% content_for :description do %>
+  <p>Edit this template in <code>app/views/RecordingSheets/index.html.erb</code>.</p>
+<% end %>
+
+<% content_for :actions do %>
+  <%= link_to new_recording_sheet_path, class: 'btn btn-primary btn-large pull-right' do %>
+    <%= icon_tag "plus" %> Add Recording sheet
+  <% end %>
+<% end %>
+
+<div class="sheet sheet-condensed">
+  <div class="sheet-inner">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Observer</th>
+          <th>Teacher</th>
+          <th>Recorded on</th>
+          <th>School year</th>
+          <th>Semester</th>
+          <th>Department</th>
+          <th>Type of school</th>
+          <th>Course</th>
+          <th>Number of students</th>
+          <th>Interval</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @recording_sheets.each do |recording_sheet| %>
+        <tr>
+          <td><%= recording_sheet.observer.email %></td>
+          <td><%= recording_sheet.teacher.email %></td>
+          <td><%= recording_sheet.recorded_on %></td>
+          <td><%= recording_sheet.school_year %></td>
+          <td><%= recording_sheet.semester %></td>
+          <td><%= recording_sheet.department.name %></td>
+          <td><%= recording_sheet.type_of_school %></td>
+          <td><%= recording_sheet.course %></td>
+          <td><%= recording_sheet.number_of_students %></td>
+          <td><%= recording_sheet.interval %></td>
+          <td class="actions">
+            <%= link_to icon_tag("eye-open"), recording_sheet, rel: 'tooltip', title: 'Show' %>
+            <%= link_to icon_tag("pencil"), edit_recording_sheet_path(recording_sheet), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to icon_tag("trash"), recording_sheet, rel: 'tooltip', title: 'Delete',
+                        data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.sheet-inner -->
+</div><!-- /.sheet -->
+

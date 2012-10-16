@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: prolearning_development
+  pool: 5
+  username: mauro
+  password:
+  port: 5432

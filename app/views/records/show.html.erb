@@ -1,0 +1,58 @@
+<% @title = "Showing record" %>
+
+<div class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label">Minute</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.minute %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Teacher</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.teacher %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Student</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.student %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Grouping</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.grouping %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Topic</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.topic %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Notes</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.notes %></span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Recording sheet</label>
+    <div class="controls">
+      <span class="uneditable-input span6"><%= @record.recording_sheet %></span>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= link_to icon_tag("pencil") + ' Edit', edit_record_path(@record), class: 'btn btn-primary' %>
+    <%= link_to 'Back', records_path, class: 'btn' %>
+  </div>
+</div>
+

@@ -1,0 +1,50 @@
+<% @title = "Listing records" %>
+
+<% content_for :description do %>
+  <p>Edit this template in <code>app/views/Records/index.html.erb</code>.</p>
+<% end %>
+
+<% content_for :actions do %>
+  <%= link_to new_recording_sheet_record_path, class: 'btn btn-primary btn-large pull-right' do %>
+    <%= icon_tag "plus" %> Add Record
+  <% end %>
+<% end %>
+
+<div class="sheet sheet-condensed">
+  <div class="sheet-inner">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Minute</th>
+          <th>Teacher</th>
+          <th>Student</th>
+          <th>Grouping</th>
+          <th>Topic</th>
+          <th>Notes</th>
+          <th>Recording sheet</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= record.minute %></td>
+          <td><%= record.teacher %></td>
+          <td><%= record.student %></td>
+          <td><%= record.grouping %></td>
+          <td><%= record.topic %></td>
+          <td><%= record.notes %></td>
+          <td><%= record.recording_sheet %></td>
+          <td class="actions">
+            <%= link_to icon_tag("eye-open"), record, rel: 'tooltip', title: 'Show' %>
+            <%= link_to icon_tag("pencil"), edit_record_path(record), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to icon_tag("trash"), record, rel: 'tooltip', title: 'Delete',
+                        data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.sheet-inner -->
+</div><!-- /.sheet -->
+

@@ -1,0 +1,91 @@
+<%= form_for(@recording_sheet, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="form-inputs">
+    <%= f.control_group :observer do |f| %>
+      <%= f.label :observer, class: 'control-label' %>
+      <div class="controls">
+        <%= current_user.email %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :teacher do |f| %>
+      <%= f.label :teacher, class: 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :teacher_id, User.where("id != ?", current_user.id), :id, :email %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :recorded_on do |f| %>
+      <%= f.label :recorded_on, class: 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :recorded_on %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :school_year do |f| %>
+      <%= f.label :school_year, class: 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :school_year %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :semester do |f| %>
+      <%= f.label :semester, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :semester %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :department do |f| %>
+      <%= f.label :department, class: 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :department_id, Department.all, :id, :name %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :type_of_school do |f| %>
+      <%= f.label :type_of_school, class: 'control-label' %>
+      <div class="controls">
+        <%= f.select :type_of_school, [["IB"], ["Highschool"]]%>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :course do |f| %>
+      <%= f.label :course, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :course %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :number_of_students do |f| %>
+      <%= f.label :number_of_students, class: 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :number_of_students %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :interval do |f| %>
+      <%= f.label :interval, class: 'control-label' %>
+      <div class="controls">
+        <%= f.select :interval, [[5], [1]]%>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+  </div>
+  
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to "Cancel", recording_sheets_path, class: 'btn' %>
+  </div>
+<% end %>
