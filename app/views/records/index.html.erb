@@ -47,4 +47,77 @@
     </table>
   </div><!-- /.sheet-inner -->
 </div><!-- /.sheet -->
+<style type="text/css">
+  .time {
+    font-weight: bold;
+    font-size: 35px;
+  }
+</style>
+
+
+  <div class="form-inputs">
+    <div class="row-fluid">
+      <div class="span1">
+        <div class="row-fluid">
+          <div class="span1">
+            <span class="icon-time"/><br/><br/><br/>
+            <span class="time"><span class="minutes">5</span>'<span class="seconds">59</span>"</span>
+          </div>
+        </div>
+      </div>
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span3">
+            <%= label_tag :teacher %><br/><br/>
+            <a class="btn">P</a>
+            <a class="btn">C</a>
+            <a class="btn">A</a>
+            <a class="btn">D</a><br/>
+            <a class="btn">RW</a>
+            <a class="btn">L</a>
+            <a class="btn">O</a>
+          </div>
+          <div class="span3">
+            <%= label_tag :student %><br/><br/>
+            <a class="btn">P</a>
+            <a class="btn">C</a>
+            <a class="btn">A</a>
+            <a class="btn">D</a><br/>
+            <a class="btn">RW</a>
+            <a class="btn">L</a>
+            <a class="btn">O</a>
+          </div>
+          <div class="span3">
+            <%= label_tag :grouping %><br/><br/>
+            <a class="btn">i</a>
+            <a class="btn">p</a>
+            <a class="btn">s</a><br/>
+            <a class="btn">w</a>
+            <a class="btn">f</a>
+            <a class="btn">o</a>
+          </div>
+          <div class="span3">
+            <%= label_tag :topic %><br/><br/>
+            <a class="btn">cc</a>
+            <a class="btn">rs</a><br/>
+            <a class="btn">m</a>
+            <a class="btn">d</a>
+            <a class="btn">o</a>
+          </div>
+        </div>
+      </div>
+      <div class="span1">
+            <span class="icon-info-sign"/>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= label_tag :notes %><br/><br/>
+        <textarea class="field span12" id="textarea" rows="6" placeholder="Notes"></textarea>
+      </div>
+    </div>
+  </div>
+  
+    <%= link_to "Back", recording_sheet_path(params[:recording_sheet_id]), class: 'btn' %>
+
 

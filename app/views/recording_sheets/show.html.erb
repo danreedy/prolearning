@@ -1,4 +1,4 @@
-<% @title = "Showing recording_sheet" %>
+<% @title = "Recording Sheet" %>
 
 <div class="form-horizontal">
   <div class="control-group">
@@ -72,8 +72,9 @@
   </div>
   
   <div class="form-actions">
-    <%= link_to icon_tag("pencil") + ' Edit', edit_recording_sheet_path(@recording_sheet), class: 'btn btn-primary' %>
     <%= link_to 'Back', recording_sheets_path, class: 'btn' %>
+    <%= link_to icon_tag("pencil") + ' Edit', edit_recording_sheet_path(@recording_sheet), class: 'btn btn-primary' %>
+    <%= link_to icon_tag("play") + ' Start', recording_sheet_records_path(@recording_sheet), class: 'btn btn-success' %>
   </div>
 </div>
 

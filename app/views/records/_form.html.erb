@@ -1,78 +1,67 @@
-<style type="text/css">
-  .time {
-    font-weight: bold;
-    font-size: 35px;
-  }
-</style>
 <%= form_for([@recording_sheet, @record], html: { class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
-
-
+  
   <div class="form-inputs">
-    <div class="row-fluid">
-      <div class="span1">
-        <div class="row-fluid">
-          <div class="span1">
-            <span class="icon-time"/><br/><br/><br/>
-            <span class="time"><span class="minutes">5</span>'<span class="seconds">59</span>"</span>
-          </div>
-        </div>
+    <%= f.control_group :minute do |f| %>
+      <%= f.label :minute, class: 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :minute %>
+        <%= f.error_messages %>
       </div>
-      <div class="span10">
-        <div class="row-fluid">
-          <div class="span3">
-            <%= f.label :teacher, class: 'control-label' %><br/><br/>
-            <a class="btn">P</a>
-            <a class="btn">C</a>
-            <a class="btn">A</a>
-            <a class="btn">D</a><br/>
-            <a class="btn">RW</a>
-            <a class="btn">L</a>
-            <a class="btn">O</a>
-          </div>
-          <div class="span3">
-            <%= f.label :student, class: 'control-label' %><br/><br/>
-            <a class="btn">P</a>
-            <a class="btn">C</a>
-            <a class="btn">A</a>
-            <a class="btn">D</a><br/>
-            <a class="btn">RW</a>
-            <a class="btn">L</a>
-            <a class="btn">O</a>
-          </div>
-          <div class="span3">
-            <%= f.label :grouping, class: 'control-label' %><br/><br/>
-            <a class="btn">i</a>
-            <a class="btn">p</a>
-            <a class="btn">s</a><br/>
-            <a class="btn">w</a>
-            <a class="btn">f</a>
-            <a class="btn">o</a>
-          </div>
-          <div class="span3">
-            <%= f.label :topic, class: 'control-label' %><br/><br/>
-            <a class="btn">cc</a>
-            <a class="btn">rs</a><br/>
-            <a class="btn">m</a>
-            <a class="btn">d</a>
-            <a class="btn">o</a>
-          </div>
-        </div>
+    <% end %>
+  
+    <%= f.control_group :teacher do |f| %>
+      <%= f.label :teacher, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :teacher %>
+        <%= f.error_messages %>
       </div>
-      <div class="span1">
-            <span class="icon-info-sign"/>
+    <% end %>
+  
+    <%= f.control_group :student do |f| %>
+      <%= f.label :student, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :student %>
+        <%= f.error_messages %>
       </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <%= f.label :notes, class: 'control-label' %><br/><br/>
-        <textarea class="field span12" id="textarea" rows="6" placeholder="Notes"></textarea>
+    <% end %>
+  
+    <%= f.control_group :grouping do |f| %>
+      <%= f.label :grouping, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :grouping %>
+        <%= f.error_messages %>
       </div>
-    </div>
+    <% end %>
+  
+    <%= f.control_group :topic do |f| %>
+      <%= f.label :topic, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :topic %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :notes do |f| %>
+      <%= f.label :notes, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :notes %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+    <%= f.control_group :recording_sheet do |f| %>
+      <%= f.label :recording_sheet, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :recording_sheet %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
   </div>
   
   <div class="form-actions">
     <%= f.submit class: 'btn btn-primary' %>
-    <%= link_to "Cancel", recording_sheet_records_path(@recording_sheet), class: 'btn' %>
+    <%= link_to "Cancel", recording_sheet_records_path, class: 'btn' %>
   </div>
 <% end %>
