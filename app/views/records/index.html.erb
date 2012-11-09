@@ -1,13 +1,7 @@
 <% @title = "Listing records" %>
 
 <% content_for :description do %>
-  <p>Edit this template in <code>app/views/Records/index.html.erb</code>.</p>
-<% end %>
-
-<% content_for :actions do %>
-  <%= link_to new_recording_sheet_record_path, class: 'btn btn-primary btn-large pull-right' do %>
-    <%= icon_tag "plus" %> Add Record
-  <% end %>
+  <!--  <p>Edit this template in <code>app/views/Records/index.html.erb</code>.</p> -->
 <% end %>
 
 <div class="sheet sheet-condensed">
@@ -50,64 +44,101 @@
 <style type="text/css">
   .time {
     font-weight: bold;
-    font-size: 35px;
+    font-size: 50px;
   }
 </style>
 
-
+<div id="progress-bar" class="progress progress-info
+     progress-striped active">
+  <div class="bar"
+       style="width: 0%;"></div>
+</div>
   <div class="form-inputs">
     <div class="row-fluid">
-      <div class="span1">
-        <div class="row-fluid">
-          <div class="span1">
-            <span class="icon-time"/><br/><br/><br/>
-            <span class="time"><span class="minutes">5</span>'<span class="seconds">59</span>"</span>
-          </div>
-        </div>
+      <div class="span2">
+            <h1>Timer</h1>
+            </br>
+            <span class="time">
+              <span class="minute">0</span>'
+              <span class="second">0</span>"
+            </span>
+            <button id="start-stopwatch" class="btn btn-success"><i class="icon-play"></i> Start</button>
+            <button id="pause-stopwatch" class="btn btn-info" style="display:none;"><i class="icon-pause"></i> Pause</button>
       </div>
       <div class="span10">
-        <div class="row-fluid">
+        <div class="row-fluid actionable">
           <div class="span3">
-            <%= label_tag :teacher %><br/><br/>
-            <a class="btn">P</a>
-            <a class="btn">C</a>
-            <a class="btn">A</a>
-            <a class="btn">D</a><br/>
-            <a class="btn">RW</a>
-            <a class="btn">L</a>
-            <a class="btn">O</a>
+            <h1>Teacher</h1>
+            <a class="btn btn-small">P</a>
+            <a class="btn btn-small">C</a>
+            <a class="btn btn-small">A</a>
+            <a class="btn btn-small">D</a>
+            <a class="btn btn-small">R</a>
+            <a class="btn btn-small">L</a>
+            <a class="btn btn-small">O</a>
+              <p class="help-block">
+              P - Presenting / Explaining</br>
+              C - Circulating</br>
+              A - Answering</br>
+              D - Discussing</br>
+              R - Reading / Writing</br>
+              L - Listening</br>
+              O - Other</br>
+              </p>
           </div>
           <div class="span3">
-            <%= label_tag :student %><br/><br/>
-            <a class="btn">P</a>
-            <a class="btn">C</a>
-            <a class="btn">A</a>
-            <a class="btn">D</a><br/>
-            <a class="btn">RW</a>
-            <a class="btn">L</a>
-            <a class="btn">O</a>
+            <h1>Student</h1>
+            <a class="btn btn-small">P</a>
+            <a class="btn btn-small">C</a>
+            <a class="btn btn-small">A</a>
+            <a class="btn btn-small">D</a>
+            <a class="btn btn-small">R</a>
+            <a class="btn btn-small">L</a>
+            <a class="btn btn-small">O</a>
+              <p class="help-block">
+              P - Presenting / Explaining</br>
+              C - Circulating</br>
+              A - Answering</br>
+              D - Discussing</br>
+              R - Reading / Writing</br>
+              L - Listening</br>
+              O - Other</br>
+              </p>
           </div>
           <div class="span3">
-            <%= label_tag :grouping %><br/><br/>
-            <a class="btn">i</a>
-            <a class="btn">p</a>
-            <a class="btn">s</a><br/>
-            <a class="btn">w</a>
-            <a class="btn">f</a>
-            <a class="btn">o</a>
+            <h1>Grouping</h1>
+            <a class="btn btn-small">i</a>
+            <a class="btn btn-small">p</a>
+            <a class="btn btn-small">s</a>
+            <a class="btn btn-small">w</a>
+            <a class="btn btn-small">f</a>
+            <a class="btn btn-small">o</a>
+              <p class="help-block">
+              i - individual / one-on-one</br>
+              p - pair work</br>
+              s - small group</br>
+              w - whole group</br>
+              f - fluid</br>
+              o - other</br>
+              </p>
           </div>
           <div class="span3">
-            <%= label_tag :topic %><br/><br/>
-            <a class="btn">cc</a>
-            <a class="btn">rs</a><br/>
-            <a class="btn">m</a>
-            <a class="btn">d</a>
-            <a class="btn">o</a>
+            <h1>Topic</h1>
+            <a class="btn btn-small">cc</a>
+            <a class="btn btn-small">rs</a>
+            <a class="btn btn-small">m</a>
+            <a class="btn btn-small">d</a>
+            <a class="btn btn-small">o</a>
+              <p class="help-block">
+              i - individual / one-on-one</br>
+              p - pair work</br>
+              s - small group</br>
+              w - whole group</br>
+              f - fluid</br>
+              o - other</br>
+              </p>
           </div>
         </div>
-      </div>
-      <div class="span1">
-            <span class="icon-info-sign"/>
       </div>
     </div>
     <div class="row-fluid">
@@ -119,5 +150,4 @@
   </div>
   
     <%= link_to "Back", recording_sheet_path(params[:recording_sheet_id]), class: 'btn' %>
-
 
