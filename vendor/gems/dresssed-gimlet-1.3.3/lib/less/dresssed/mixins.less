@@ -1,0 +1,71 @@
+// Border Radius
+// -------------
+
+.border-radius-left(@radius: 5px) {
+  -webkit-border-top-left-radius: @radius;
+      -moz-border-radius-topleft: @radius;
+          border-top-left-radius: @radius;
+  
+  -webkit-border-bottom-left-radius: @radius;
+      -moz-border-radius-bottomleft: @radius;
+          border-bottom-left-radius: @radius;
+}
+
+.border-radius-right(@radius: 5px) {
+  -webkit-border-top-right-radius: @radius;
+      -moz-border-radius-topright: @radius;
+          border-top-right-radius: @radius;
+  
+  -webkit-border-bottom-right-radius: @radius;
+      -moz-border-radius-bottomright: @radius;
+          border-bottom-right-radius: @radius;
+}
+
+.border-radius-top(@radius: 5px) {
+  -webkit-border-top-left-radius: @radius;
+      -moz-border-radius-topleft: @radius;
+          border-top-left-radius: @radius;
+
+-webkit-border-top-right-radius: @radius;
+    -moz-border-radius-topright: @radius;
+        border-top-right-radius: @radius;
+}
+
+.border-radius-bottom(@radius: 5px) {
+  -webkit-border-bottom-left-radius: @radius;
+      -moz-border-radius-bottomleft: @radius;
+          border-bottom-left-radius: @radius;
+  
+  -webkit-border-bottom-right-radius: @radius;
+      -moz-border-radius-bottomright: @radius;
+          border-bottom-right-radius: @radius;
+}
+
+
+// Carets
+// ------
+
+.horizontal-caret(@side, @height: 9px, @width: 9px, @color: @white) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  text-indent: -99999px;
+  // IE7 won't do the border trick if there's a text indent, but it doesn't
+  // do the content that text-indent is hiding, either, so we're ok.
+  *text-indent: 0;
+  vertical-align: top;
+  border-top:     @height solid transparent;
+  border-bottom:  @height solid transparent; 
+  content: " ";
+  
+  position: relative;
+  float: @side;
+}
+
+.horizontal-caret(left, @height: 9px, @width: 9px, @color: @white) {
+  border-right: @width solid @color;
+}
+
+.horizontal-caret(right, @height: 9px, @width: 9px, @color: @white) {
+  border-left: @width solid @color;
+}

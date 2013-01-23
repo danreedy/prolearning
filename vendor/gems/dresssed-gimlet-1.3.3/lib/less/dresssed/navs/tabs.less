@@ -1,0 +1,19 @@
+// BASIC TABS
+// ----------
+
+.nav-tabs {
+  border-color: @borderColor;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover {
+  border-color: @borderColor;
+}
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+  font-weight: bold;
+  color: @textColor;
+  #gradient > .vertical(@white, @backgroundColor);
+  border-color: @borderColor @borderColor @backgroundColor @borderColor;
+}

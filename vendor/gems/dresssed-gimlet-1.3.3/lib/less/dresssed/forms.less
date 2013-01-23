@@ -1,0 +1,112 @@
+.form-actions {
+  background: transparent;
+  border-top: none;
+  margin-top: 0;
+  
+  input[type="submit"] {
+    margin-bottom: 0;
+  }
+}
+
+
+// Labels
+// ------
+
+.control-label {
+  color: @quietColor;
+  
+  text-transform: uppercase;
+  font-size: @baseFontSize - 2px;
+  font-weight: bold;
+  
+  margin-bottom: 0;
+}
+
+
+// Place holders
+// -------------
+
+:-moz-placeholder {
+  color: @quietColor;
+  font-size: @baseFontSize - 1px;
+}
+::-webkit-input-placeholder {
+  color: @quietColor;
+  font-size: @baseFontSize - 1px;
+}
+
+
+// Help inline pills
+// -----------------
+
+.help-inline {
+  padding: 1px 6px 0 6px;
+  margin-left: 9px;
+  
+  background: @textColor;
+  color: @white;
+  .border-radius(3px);
+  
+  font-size: @baseFontSize - 3px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  text-transform: uppercase;
+}
+
+.help-inline::before {
+  .horizontal-caret(left, 10px, 9px, @textColor);
+
+  margin-left: -14px;
+  margin-right: 6px;
+  margin-top: -1px;
+}
+
+.control-group.warning .help-inline,
+.control-group.error .help-inline,
+.control-group.success .help-inline {
+  color: @white;
+}
+
+.control-group.warning {
+  label.control-label  { color: @warningText; }
+  .help-inline         { background: @warningText; }
+  .help-inline::before { border-right-color: @warningText; }
+}
+
+.control-group.error {
+  label.control-label  { color: @errorText; }
+  .help-inline         { background: @errorText; }
+  .help-inline::before { border-right-color: @errorText; }
+}
+
+.control-group.success {
+  label.control-label  { color: @successText; }
+  .help-inline         { background: @successText; }
+  .help-inline::before { border-right-color: @successText; }
+}
+
+
+// Rails field errors
+// ------------------
+.field_with_errors {
+  display: inline;
+}
+
+
+// Remove all border-radius for inputs with both prepend and append
+.input-prepend.input-append {
+  input,
+  select,
+  .uneditable-input {
+    .border-radius(0);
+  }
+  .add-on:first-child,
+  .btn:first-child {
+    margin-right: -1px;
+    .border-radius(3px 0 0 3px);
+  }
+  .add-on:last-child,
+  .btn:last-child {
+    margin-left: -1px;
+    .border-radius(0 3px 3px 0);
+  }
+}

@@ -1,0 +1,45 @@
+.pagination ul {
+  border-color: transparent;
+  .box-shadow(none);
+}
+
+.pagination li:first-child a {
+  margin-left: 0;
+  .border-radius(3px);
+}
+
+.pagination li:last-child a {
+  .border-radius(3px);
+}
+
+.pagination li a {
+  margin-left: 10px;
+  
+  border-color: transparent;
+  border-left-width: 1px;
+  
+  text-align: center;
+  min-width: 10px;
+  padding: 0 5px;
+  line-height: @baseLineHeight + 5px;
+  
+  .border-radius(3px);
+}
+
+.pagination a:hover,
+.pagination .active a {
+  #gradient > .vertical(#fff, @backgroundColor);
+  border: solid 1px @borderColor;
+  .box-shadow(0 1px 0 #fff);
+}
+
+.pagination .active a {
+  color: darken(@linkColor, 3%);
+}
+
+.pagination .disabled a,
+.pagination .disabled a:hover {
+  color: @quietColor;
+  background: none;
+  border: none;
+}

@@ -1,0 +1,22 @@
+===============================================================================
+
+You're ready to customize your theme!
+                    
+The theme can now be fully customized in:
+
+  app/assets/stylesheets/dresssed.css.less
+
+Some setup you must do manually if you haven't yet:
+  
+  * Ensure `gem 'less-rails'` has been added to your Gemfile.
+
+  * Remove app/assets/stylesheets/dresssed.css. Port your changes to
+    dresssed.css.less if any.
+
+  * Ensure app/assets/stylesheets/dresssed.css.less is loaded in
+    application.css with `require_tree .` or `require dresssed`.
+
+  * Lastly, restart your server if it's already running.
+
+                                             Any problem? dresssed@codedinc.com
+===============================================================================

@@ -1,0 +1,30 @@
+<%# Top navigation bar containing the main menu of your app. %>
+<div class="navbar navbar-fixed-top">
+  <!-- TIP: to unfix the navbar:
+    1. remove the 'navbar-fixed-top' class here and
+    2. add the 'static-navbar' class to your body tag. -->
+  <div class="navbar-inner">
+    <div class="container">
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <!-- Le logo -->
+      <a class="brand" href="<%= root_path %>"><%= app_name %></a>
+
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse">
+        <ul class="nav">
+          <%= activatable_li_tag_with_link "Home", root_path %>
+        </ul> <!-- /.nav -->
+        
+        <%= yield :navbar %>
+      </div> <!-- /.nav-collapse -->
+
+    </div> <!-- /.container -->
+  </div> <!-- /.navbar-inner -->
+</div> <!-- /.navbar -->

@@ -1,0 +1,13 @@
+- @title = "Showing <%= singular_table_name %>"
+
+.form-horizontal
+<% attributes.each do |attribute| -%>
+  .control-group
+    %label.control-label <%= attribute.human_name %>
+    .controls
+      %span.uneditable-input.span6= @<%= singular_table_name %>.<%= attribute.name %>
+  
+<% end -%>
+  .form-actions
+    = link_to icon_tag("pencil") + ' Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), <%= key_value :class, "'btn btn-primary'" %>
+    = link_to 'Back', <%= index_helper %>_path, <%= key_value :class, "'btn'" %>

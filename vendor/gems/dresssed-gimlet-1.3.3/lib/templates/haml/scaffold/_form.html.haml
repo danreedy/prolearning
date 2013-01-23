@@ -1,0 +1,29 @@
+<%- if defined?(SimpleForm) -%>
+= simple_form_for(@<%= singular_table_name %>, <%= key_value :wrapper, ":bootstrap" %>, <%= key_value :html, '{ ' + key_value(:class, "'form-horizontal'") + ' }' %>) do |f|
+  = f.error_notification
+
+  .form-inputs
+  <%- attributes.each do |attribute| -%>
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+  <%- end -%>
+
+  .form-actions
+    = f.button :submit
+    = f.button :cancel, <%= key_value :to, "#{index_helper}_path" %>
+<%- else -%>
+= form_for(@<%= singular_table_name %>, <%= key_value :html, '{ ' + key_value(:class, "'form-horizontal'") + ' }' %>) do |f|
+  = f.error_notification
+  
+  .form-inputs
+  <%- attributes.each do |attribute| -%>
+    = f.control_group :<%= attribute.name %> do |f|
+      = f.label :<%= attribute.name %>, <%= key_value :class, "'control-label'" %>
+      .controls
+        = f.<%= attribute.field_type %> :<%= attribute.name %>
+        = f.error_messages
+  <%- end -%>
+  
+  .form-actions
+    = f.submit <%= key_value :class, "'btn btn-primary'" %>
+    = link_to "Cancel", <%= index_helper %>_path, <%= key_value :class, "'btn'" %>
+<%- end -%>

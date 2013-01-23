@@ -1,0 +1,57 @@
+// Featured bar in landing page header
+
+#featured {
+  background: url(@featuredImagePath) center bottom no-repeat;
+  
+  h1, h2, p {
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+  }
+  
+  h1, h2 {
+    color: @featuredHeaderColor;
+  }
+  
+  p {
+    font-style: italic;
+    color: @quietColor;
+    margin: 20px 0;
+  }
+  
+  .shot {
+    height: 312px;
+    padding-top: 30px;
+    position: relative;
+    
+    img {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  
+  .pitch {
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+}
+
+// Scale or hide content depending on viewport size
+
+@media (max-width: 768px) {
+  #featured .shot { display: none; }
+  #featured .pitch { margin-top: 20px; }
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+  #featured .shot { height: 222px; }
+  #featured .pitch {
+    margin-top: 20px;
+    
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1200px) {
+  #featured .shot { height: 260px; }
+  #featured .pitch { margin-top: 60px; }
+}

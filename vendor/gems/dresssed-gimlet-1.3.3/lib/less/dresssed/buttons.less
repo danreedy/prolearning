@@ -1,0 +1,121 @@
+.btn {
+  padding: 4px 14px;
+  
+  color: lighten(@textColor, 10%);
+  .buttonBackground(lighten(@backgroundColor, 10%), darken(@backgroundColor, 3%));
+  
+  font-style: normal;
+  font-family: @baseFontFamily;
+  
+  .border-radius(30px);
+  border-color: @borderColor;
+  border-bottom-color: darken(@borderColor, 10%);
+}
+
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover,
+.btn-inverse,
+.btn-inverse:hover {
+  color: @white;
+}
+
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-dark.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+// -------------------------
+.btn-primary {
+  color: @primaryButtonText;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  .buttonBackground(lighten(@primaryButtonBackground, 20%), @primaryButtonBackground);
+}
+.btn-primary:hover {
+  color: darken(@primaryButtonText, 10%);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+// Warning appears are orange
+.btn-warning {
+  .buttonBackground(lighten(@orange, 15%), @orange);
+}
+// Danger and error appear as red
+.btn-danger {
+  .buttonBackground(#ee5f5b, #bd362f);
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(#62c462, #51a351);
+}
+// Info appears as a neutral blue
+.btn-info {
+  .buttonBackground(#5bc0de, #2f96b4);
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  .buttonBackground(#454545, #262626);
+}
+
+
+
+// Homepage call to action
+
+.btn-border {
+  .border-radius(@buttonBorderRadius);
+  .box-shadow(0 1px 1px rgba(255, 255, 255, 0.1));
+  background-color: @buttonTransparentBorder;
+  padding: 5px;
+  display: inline-block;
+  
+  .btn {
+    .buttonBackground(lighten(@callToActionBackgroundColor, 20%), @callToActionBackgroundColor);
+    color: @callToActionTextColor;
+    
+    font-family: @headerFontFamily;
+    font-weight: bold;
+
+    .box-shadow(none);
+
+    border: 0;
+    margin: 0;
+
+    text-transform: uppercase;
+  }
+  
+  .btn.active,
+  .btn:active {
+    .buttonBackground(lighten(@callToActionBackgroundColor, 10%), darken(@callToActionBackgroundColor, 10%));
+  }
+}
+
+
+// Button sizes
+// ------------
+
+.btn-large {
+  padding: 9px 16px;
+  .border-radius(@largeButtonBorderRadius);
+}
+
+.btn-small {
+  padding: 3px 9px;
+}
+.btn-small .caret {
+  margin-top: 6px;
+}
+
+.btn-mini {
+  padding: 1px 7px;
+  font-size: @baseFontSize - 3px;
+}

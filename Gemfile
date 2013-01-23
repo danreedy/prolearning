@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -39,5 +39,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-source 'http://dresssed.com/gems/c6190189a8e49f8f69ea/'
-gem 'dresssed-gimlet'
+gem 'dresssed-gimlet', '3.3.1', path: 'vendor/gems'

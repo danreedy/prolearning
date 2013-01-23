@@ -1,0 +1,36 @@
+body {
+  background: @footerBackgroundColor;
+}
+
+#main {
+  background: @backgroundColor url(@backgroundImagePath) repeat-x;
+  
+  padding: 30px 0;
+  min-height: 500px;
+}
+
+#content {
+  .clearfix
+}
+
+footer {
+  background: @footerBackgroundColor url(@footerImagePath) repeat-x;
+  color: @quietColor;
+  
+  padding: 30px 0;
+  clear: both;
+  
+  p {
+    font-size: @baseFontSize - 2px;
+  }
+}
+
+section {
+  padding-top: 30px;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
