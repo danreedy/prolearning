@@ -6,16 +6,12 @@
 
 <div class="sheet sheet-condensed">
   <div class="sheet-inner">
-    <table class="table">
+    <table id="results" class="table">
       <thead>
         <tr>
           <th>Minute</th>
-          <th>Teacher</th>
-          <th>Student</th>
-          <th>Grouping</th>
-          <th>Topic</th>
+          <th>String</th>
           <th>Notes</th>
-          <th>Recording sheet</th>
           <th></th>
         </tr>
       </thead>
@@ -23,16 +19,12 @@
       <% @records.each do |record| %>
         <tr>
           <td><%= record.minute %></td>
-          <td><%= record.teacher %></td>
-          <td><%= record.student %></td>
-          <td><%= record.grouping %></td>
-          <td><%= record.topic %></td>
+          <td><%= record.string %></td>
           <td><%= record.notes %></td>
-          <td><%= record.recording_sheet %></td>
           <td class="actions">
-            <%= link_to icon_tag("eye-open"), record, rel: 'tooltip', title: 'Show' %>
-            <%= link_to icon_tag("pencil"), edit_record_path(record), rel: 'tooltip', title: 'Edit' %>
-            <%= link_to icon_tag("trash"), record, rel: 'tooltip', title: 'Delete',
+            <%= link_to icon_tag("eye-open"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Show' %>
+            <%= link_to icon_tag("pencil"), edit_recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to icon_tag("trash"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Delete',
                         data: { confirm: 'Are you sure?' }, method: :delete %>
           </td>
         </tr>
@@ -45,6 +37,9 @@
   .time {
     font-weight: bold;
     font-size: 50px;
+  }
+  .help-block {
+    display: none;
   }
 </style>
 
@@ -62,12 +57,15 @@
               <span class="minute">0</span>'
               <span class="second">0</span>"
             </span>
-            <button id="start-stopwatch" class="btn btn-success"><i class="icon-play"></i> Start</button>
-            <button id="pause-stopwatch" class="btn btn-info" style="display:none;"><i class="icon-pause"></i> Pause</button>
+            <button id="start-stopwatch" class="btn btn-danger"><i class="icon-play-circle"></i> Record</button>
+            <button id="pause-stopwatch" class="btn btn" style="display:none;"><i class="icon-pause"></i> Pause</button>
+            <br/>
+            <br/>
+            <button id="show-info" class="btn btn-info"><i class="icon-info-sign"></i> Info</button>
       </div>
       <div class="span10">
         <div class="row-fluid actionable">
-          <div class="span3">
+          <div id="teacher-selector" class="span3">
             <h1>Teacher</h1>
             <a class="btn btn-small">P</a>
             <a class="btn btn-small">C</a>
@@ -86,7 +84,7 @@
               O - Other</br>
               </p>
           </div>
-          <div class="span3">
+          <div id="student-selector" class="span3">
             <h1>Student</h1>
             <a class="btn btn-small">P</a>
             <a class="btn btn-small">C</a>
@@ -105,7 +103,7 @@
               O - Other</br>
               </p>
           </div>
-          <div class="span3">
+          <div id="grouping-selector" class="span3">
             <h1>Grouping</h1>
             <a class="btn btn-small">i</a>
             <a class="btn btn-small">p</a>
@@ -122,7 +120,7 @@
               o - other</br>
               </p>
           </div>
-          <div class="span3">
+          <div id="topic-selector" class="span3">
             <h1>Topic</h1>
             <a class="btn btn-small">cc</a>
             <a class="btn btn-small">rs</a>
@@ -143,8 +141,8 @@
     </div>
     <div class="row-fluid">
       <div class="span12">
-        <%= label_tag :notes %><br/><br/>
-        <textarea class="field span12" id="textarea" rows="6" placeholder="Notes"></textarea>
+        <br/><br/>
+        <textarea class="field span12" id="notes" rows="6" placeholder="Notes"></textarea>
       </div>
     </div>
   </div>

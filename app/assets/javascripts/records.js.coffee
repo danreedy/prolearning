@@ -9,6 +9,7 @@ total_time = 40
 start = () ->
     time = setInterval ( ->
         update_watch() 
+        save_record()
     ), 1000
 
 stop = () ->
@@ -33,7 +34,7 @@ update_watch = () ->
 
 $ ->     
     $('.actionable .btn')
-        .live 'click', -> 
+        .on 'click', -> 
             if $(this).hasClass('btn-inverse')
             then $(this).removeClass('btn-inverse')
             else $(this).addClass('btn-inverse')
@@ -49,3 +50,31 @@ $ ->
             stop()
             $('#start-stopwatch').show()
             $('#pause-stopwatch').hide()
+
+    $('#show-info')
+        .click ->
+            if $('.help-block').is(':visible')
+                $('#show-info').addClass('btn-info')
+                $('.help-block').hide()
+            else
+                $('#show-info').removeClass('btn-info')
+                $('.help-block').show()
+
+save_record = ->
+    #minute = $('.minute').text()
+    minute = $('.second').text()
+    teacher = $('#teacher-selector .btn-inverse:first').text()
+    student = $('#student-selector .btn-inverse:first').text()
+    grouping = $('#grouping-selector .btn-inverse:first').text()
+    topic = $('#topic-selector .btn-inverse:first').text()
+    notes = $('#notes').val()
+    $.post(
+        "/recording_sheets/1/records"
+        { record: {minute: minute, teacher: teacher, student: student, grouping: grouping, topic: topic, notes: notes }}
+        (record) ->
+            update_table record
+        "json")
+
+update_table = (record) ->
+    $('#results tbody')
+        .append("<tr><td>#{record.minute}</td><td>#{record.teacher}#{record.student}#{record.grouping}#{record.topic}</td><td>#{record.notes}</td></tr>")

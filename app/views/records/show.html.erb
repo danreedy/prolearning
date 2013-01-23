@@ -51,8 +51,8 @@
   </div>
   
   <div class="form-actions">
-    <%= link_to icon_tag("pencil") + ' Edit', edit_record_path(@record), class: 'btn btn-primary' %>
-    <%= link_to 'Back', records_path, class: 'btn' %>
+    <%= link_to icon_tag("pencil") + ' Edit', edit_recording_sheet_record_path(@record.recording_sheet, @record), class: 'btn btn-primary' %>
+    <%= link_to 'Back', recording_sheet_records_path, class: 'btn' %>
   </div>
 </div>
 

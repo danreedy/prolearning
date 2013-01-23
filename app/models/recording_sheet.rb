@@ -5,4 +5,6 @@ class RecordingSheet < ActiveRecord::Base
   has_many :records
 
   attr_accessible :course, :interval, :number_of_students, :recorded_on, :school_year, :semester, :type_of_school, :observer_id, :teacher_id, :department_id
+
+  validates_presence_of :course, :interval, :number_of_students, :recorded_on, :school_year, :semester, :type_of_school, :observer_id, :teacher_id, :department_id
 end
