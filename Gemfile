@@ -39,4 +39,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'dresssed-gimlet', '1.3.3', path: 'vendor/gems'
+gem 'dresssed-gimlet', '1.3.3', path: 'vendor/gems/dresssed-gimlet-1.3.3'
