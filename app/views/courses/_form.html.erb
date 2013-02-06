@@ -1,0 +1,19 @@
+<%= form_for(@course, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="form-inputs">
+    <%= f.control_group :name do |f| %>
+      <%= f.label :name, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  
+  </div>
+  
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to "Cancel", courses_path, class: 'btn' %>
+  </div>
+<% end %>

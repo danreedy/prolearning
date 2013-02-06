@@ -9,6 +9,12 @@ gem 'pg'
 gem 'devise'
 gem 'thin'
 
+group :test do
+    gem 'cucumber-rails'
+    gem 'database_cleaner'
+    gem 'factory_girl_rails'
+    gem 'rspec-rails', '2.12.0'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

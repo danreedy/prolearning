@@ -1,5 +1,8 @@
 Prolearning::Application.routes.draw do
 
+  resources :courses
+
+
   resources :recording_sheets do
     resources :records
   end
