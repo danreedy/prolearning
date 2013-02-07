@@ -11,7 +11,7 @@
     <% end %>
   
     <%= f.control_group :teacher do |f| %>
-      <%= f.label :teacher, class: 'control-label' %>
+      <%= f.label :teacher_id, class: 'control-label' %>
       <div class="controls">
         <%= f.collection_select :teacher_id, User.where("id != ?", current_user.id), :id, :email %>
         <%= f.error_messages %>
@@ -43,7 +43,7 @@
     <% end %>
   
     <%= f.control_group :department do |f| %>
-      <%= f.label :department, class: 'control-label' %>
+      <%= f.label :department_id, class: 'control-label' %>
       <div class="controls">
         <%= f.collection_select :department_id, Department.all, :id, :name %>
         <%= f.error_messages %>
@@ -59,9 +59,9 @@
     <% end %>
   
     <%= f.control_group :course do |f| %>
-      <%= f.label :course, class: 'control-label' %>
+      <%= f.label :course_id, class: 'control-label' %>
       <div class="controls">
-        <%= f.text_field :course %>
+        <%= f.collection_select :course_id, Course.all, :id, :name %>
         <%= f.error_messages %>
       </div>
     <% end %>

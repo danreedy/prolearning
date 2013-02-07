@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206105634) do
+ActiveRecord::Schema.define(:version => 20130206140924) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20130206105634) do
     t.string   "semester"
     t.integer  "department_id"
     t.string   "type_of_school"
-    t.string   "course"
     t.integer  "number_of_students"
     t.integer  "interval"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "course_id"
   end
 
   add_index "recording_sheets", ["department_id"], :name => "index_recording_sheets_on_department_id"

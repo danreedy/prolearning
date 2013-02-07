@@ -5,7 +5,7 @@ module CoursesWorld
   COURSES_CREATE_COURSE_BUTTON = "Create Course"
 
   def add_course
-    @course_attributes = Factory.attributes_for :course
+    @course_attributes = FactoryGirl.attributes_for :course
     visit root_path
     click_on COURSES_LINK_SELECTOR
     click_on COURSES_ADD_NEW_COURSE_SELECTOR
