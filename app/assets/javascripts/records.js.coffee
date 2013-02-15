@@ -63,10 +63,10 @@ $ ->
 save_record = ->
     #minute = $('.minute').text()
     minute = $('.second').text()
-    teacher = $('#teacher-selector .btn-inverse:first').text()
-    student = $('#student-selector .btn-inverse:first').text()
-    grouping = $('#grouping-selector .btn-inverse:first').text()
-    topic = $('#topic-selector .btn-inverse:first').text()
+    teacher = $('#teacher-selector .btn-inverse').text()
+    student = $('#student-selector .btn-inverse').text()
+    grouping = $('#grouping-selector .btn-inverse').text()
+    topic = $('#topic-selector .btn-inverse').text()
     notes = $('#notes').val()
     $.post(
         "/recording_sheets/1/records"
@@ -76,5 +76,10 @@ save_record = ->
         "json")
 
 update_table = (record) ->
-    $('#results tbody')
-        .append("<tr><td>#{record.minute}</td><td>#{record.teacher}#{record.student}#{record.grouping}#{record.topic}</td><td>#{record.notes}</td></tr>")
+    if record.minute % 5 == 0
+        $('#results tbody tr:not(".summary")').hide()
+        $('#results tbody')
+            .append("<tr class='summary'><td>#{record.minute-4}-#{record.minute}</td><td>#{record.summary}</td><td>#{record.notes}</td></tr>")
+    else
+        $('#results tbody')
+            .append("<tr><td>#{record.minute}</td><td>#{record.teacher}#{record.student}#{record.grouping}#{record.topic}</td><td>#{record.notes}</td></tr>")

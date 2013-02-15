@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206140924) do
+ActiveRecord::Schema.define(:version => 20130207153439) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130206140924) do
     t.integer  "recording_sheet_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "summary"
   end
 
   add_index "records", ["recording_sheet_id"], :name => "index_records_on_recording_sheet_id"
