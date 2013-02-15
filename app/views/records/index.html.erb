@@ -4,35 +4,6 @@
   <!--  <p>Edit this template in <code>app/views/Records/index.html.erb</code>.</p> -->
 <% end %>
 
-<div class="sheet sheet-condensed">
-  <div class="sheet-inner">
-    <table id="results" class="table">
-      <thead>
-        <tr>
-          <th>Minute</th>
-          <th>String</th>
-          <th>Notes</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @records.each do |record| %>
-        <tr>
-          <td><%= record.minute %></td>
-          <td><%= record.string %></td>
-          <td><%= record.notes %></td>
-          <td class="actions">
-            <%= link_to icon_tag("eye-open"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Show' %>
-            <%= link_to icon_tag("pencil"), edit_recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Edit' %>
-            <%= link_to icon_tag("trash"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Delete',
-                        data: { confirm: 'Are you sure?' }, method: :delete %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div><!-- /.sheet-inner -->
-</div><!-- /.sheet -->
 <style type="text/css">
   .time {
     font-weight: bold;
@@ -148,4 +119,36 @@
   </div>
   
     <%= link_to "Back", recording_sheet_path(params[:recording_sheet_id]), class: 'btn' %>
+
+<div class="sheet sheet-condensed">
+  <div class="sheet-inner">
+    <table id="results" class="table">
+      <thead>
+        <tr>
+          <th>Minute</th>
+          <th>String</th>
+          <th>Notes</th>
+          <th>Summary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= record.minute %></td>
+          <td><%= record.string %></td>
+          <td><%= record.notes %></td>
+          <td><%= record.summary %></td>
+          <td class="actions">
+            <%= link_to icon_tag("eye-open"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Show' %>
+            <%= link_to icon_tag("pencil"), edit_recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to icon_tag("trash"), recording_sheet_record_path(record.recording_sheet, record), rel: 'tooltip', title: 'Delete',
+                        data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.sheet-inner -->
+</div><!-- /.sheet -->
 
