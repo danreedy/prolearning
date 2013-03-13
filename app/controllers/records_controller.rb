@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @recording_sheet = RecordingSheet.find(params[:recording_sheet_id])
-    @records = Record.all
+    @records = Record.where(:recording_sheet_id => @recording_sheet)
 
     respond_to do |format|
       format.html # index.html.erb
