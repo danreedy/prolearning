@@ -11,7 +11,6 @@ module RecordsWorld
   end
   
   def verify_record_summary(record, interval)
-      puts Record.find(record).summary.inspect
     if record.minute == interval
       Record.find(record).summary.should_not == nil
     else

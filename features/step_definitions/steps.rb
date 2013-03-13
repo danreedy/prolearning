@@ -1,5 +1,13 @@
-Given /^I am logged in$/ do
-    login_as_admin
+Given /^I am logged in as an admin$/ do
+    @admin ||= login_as_admin
+end
+
+Given /^I am logged in as an observer$/ do
+    login_as_observer
+end
+
+Given /^I am logged in as a teacher$/ do
+    @teacher ||= login_as_teacher
 end
 
 Given /^a course exists$/ do
