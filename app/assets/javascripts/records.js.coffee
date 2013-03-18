@@ -69,7 +69,7 @@ save_record = ->
     topic = $('#topic-selector .btn-inverse').text()
     notes = $('#notes').val()
     $.post(
-        "/recording_sheets/1/records"
+        document.URL
         { record: {minute: minute, teacher: teacher, student: student, grouping: grouping, topic: topic, notes: notes }}
         (record) ->
             update_table record
