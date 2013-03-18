@@ -1,5 +1,7 @@
 Prolearning::Application.routes.draw do
 
+  get "dashboard/index"
+
   resources :courses
 
 

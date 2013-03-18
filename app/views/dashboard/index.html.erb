@@ -1,0 +1,180 @@
+<% javascript 'https://www.google.com/jsapi' %>
+<% @title = "Dashboard" %>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Teacher');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @first_batch_summary[:teacher].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'First Batch - Teacher',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('first_teacher_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Student');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @first_batch_summary[:student].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'First Batch - Student',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('first_student_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Grouping');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @first_batch_summary[:grouping].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'First Batch - Grouping',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('first_grouping_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topic');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @first_batch_summary[:topic].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'First Batch - Topic',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('first_topic_chart'));
+        chart.draw(data, options);
+
+
+
+
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Teacher');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @second_batch_summary[:teacher].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'Second Batch - Teacher',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('second_teacher_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Student');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @second_batch_summary[:student].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'Second Batch - Student',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('second_student_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Grouping');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @second_batch_summary[:grouping].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'Second Batch - Grouping',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('second_grouping_chart'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topic');
+        data.addColumn('number', 'Occurrences');
+        data.addRows([
+          <% @second_batch_summary[:topic].each do |idx, val| %>
+            ['<%= idx %>', <%= val %>],
+          <% end %>
+        ]);
+
+        // Set chart options
+        var options = {'title':'Second Batch - Topic',
+                       'width':450,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('second_topic_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  <div class="row">
+    <div class="span6">
+      <div id="first_teacher_chart"></div>
+      <div id="first_student_chart"></div>
+      <div id="first_grouping_chart"></div>
+      <div id="first_topic_chart"></div>
+    </div>
+    <div class="span6">
+      <div id="second_teacher_chart"></div>
+      <div id="second_student_chart"></div>
+      <div id="second_grouping_chart"></div>
+      <div id="second_topic_chart"></div>
+    </div>
+  </div>

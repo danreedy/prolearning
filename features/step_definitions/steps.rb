@@ -52,3 +52,11 @@ end
 Then /^summary of the past interval gets saved$/ do
     verify_record_summary @record, @interval
 end
+
+When /^I click on the dashboard link in the menu$/ do
+    go_to_dashboard
+end
+
+Then /^I see the dashboard page$/ do
+    find('title').native.text.should == "Dashboard - ProLearning"
+end
