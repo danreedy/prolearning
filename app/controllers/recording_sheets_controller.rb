@@ -1,4 +1,5 @@
 class RecordingSheetsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /recording_sheets
   # GET /recording_sheets.json
   def index

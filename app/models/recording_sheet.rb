@@ -71,4 +71,12 @@ class RecordingSheet < ActiveRecord::Base
       :topic => topic_summary
     }
   end
+
+  def self.batch(conditions=[])
+    recording_sheets = scoped
+    conditions.each do |name, *values|
+      recording_sheets = recording_sheets.send(name, *values)
+    end
+    recording_sheets
+  end
 end
