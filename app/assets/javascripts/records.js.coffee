@@ -61,8 +61,8 @@ $ ->
                 $('.help-block').show()
 
 save_record = ->
-    #minute = $('.minute').text()
-    minute = $('.second').text()
+    minute = $('.minute').text()
+    #minute = $('.second').text()
     teacher = $('#teacher-selector .btn-inverse').text()
     student = $('#student-selector .btn-inverse').text()
     grouping = $('#grouping-selector .btn-inverse').text()
