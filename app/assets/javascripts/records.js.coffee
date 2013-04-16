@@ -9,7 +9,6 @@ total_time = 40
 start = () ->
     time = setInterval ( ->
         update_watch() 
-        save_record()
     ), 1000
 
 stop = () ->
@@ -28,6 +27,7 @@ update_watch = () ->
     $('.minute').text(minute)
     $('.second').text(second)
     if minute > 0 and !(minute % interval) and second == 0
+        save_record()
         progress = 100 / total_time * minute
         progress = Math.round progress
         $('#progress-bar .bar').css('width',progress+'%')
